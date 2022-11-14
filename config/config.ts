@@ -4,6 +4,8 @@ export default defineConfig({
   antd: {},
   access: {},
   model: {},
+  publicPath: '/src/',
+  base: '/',
   initialState: {},
   request: {},
   layout: {
@@ -11,5 +13,9 @@ export default defineConfig({
   },
   routes,
   npmClient: "pnpm",
+  apiRoute: {
+    platform: 'vercel'
+  },
+  // plugins: [require.resolve('@umijs/plugins/dist/tailwindcss')],
   tailwindcss: {},
 });
