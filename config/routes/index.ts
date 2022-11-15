@@ -19,6 +19,7 @@ export default [
         component: "@/pages/Table",
     },
     { name: '新增', path: '/posts/create', component: '@/pages/Home' },
+    { name: '注册', path: '/posts/register', component: '@/pages/register' },
     { name: '登录', path: '/login', component: '@/pages/Home' },
     { name: '查看', path: '/posts/:postId', component: '@/pages/Home' },
 ]
