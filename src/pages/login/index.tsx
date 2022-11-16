@@ -3,6 +3,7 @@ import TextInput from './components/TextInput';
 import Button from './components/Button';
 // @ts-ignore
 import { history } from 'umi';
+import { message } from 'antd';
 
 export default function () {
   const [email, setEmail] = useState('');
@@ -22,7 +23,7 @@ export default function () {
         return;
       }
       const data = await res.json();
-      alert(`欢迎回来，${data.name}`);
+      message.success(`欢迎回来，${data.name}`);
       history.push('/posts/create');
     } catch (err) {
       console.error(err);

@@ -1,13 +1,22 @@
 import { UmiApiRequest, UmiApiResponse } from "@umijs/max";
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient, User } from '@prisma/client'
 export default async function (req: UmiApiRequest, res: UmiApiResponse) {
+    // 建立一个 Prisma 客户端，他可以帮助我们连线到数据库
+
+
+
     try {
 
-        // 建立一个 Prisma 客户端，他可以帮助我们连线到数据库
         const prisma = new PrismaClient();
-
         // 在数据库的 User 表中建立一个新的数据
         const user = await prisma.user.findMany()
+
+        if (user?.length) {
+            await prisma.user.deleteMany({
+                where: { avatarUrl: null }
+            })
+        }
+
         res.status(200)
             .json({ ...user })
 
