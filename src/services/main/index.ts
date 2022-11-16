@@ -13,8 +13,8 @@ export async function addUserApi(
     });
 }
 /**接口测试 */
-export async function testApi() {
-    return request<API.Result_UserInfo_>('/api/test', {
+export async function deleteAllUserApi() {
+    return request<API.Result_UserInfo_>('/api/deleteAllUser', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',

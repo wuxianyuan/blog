@@ -1,6 +1,5 @@
-import { addUserApi, testApi } from '@/services';
-import { Button, Form, Input, message } from 'antd';
-import ButtonGroup from 'antd/lib/button/button-group';
+import { addUserApi, deleteAllUserApi } from '@/services';
+import { Button, Divider, Form, Input, message, Space } from 'antd';
 import { FC } from 'react';
 
 type UseInfo = {
@@ -16,14 +15,14 @@ const Register: FC<any> = () => {
     });
     console.log(values);
   };
-  const handleTest = () => {
-    testApi().then(() => {
+  const handleDelete = () => {
+    deleteAllUserApi().then(() => {
       message.success('请求成功');
     });
   };
   return (
     <>
-      <ButtonGroup>
+      <Space>
         <Button
           onClick={() => {
             form.submit();
@@ -31,9 +30,9 @@ const Register: FC<any> = () => {
         >
           注册
         </Button>
-        <Button onClick={() => handleTest()}>接口测试</Button>
-      </ButtonGroup>
-
+        <Button onClick={() => handleDelete()}>注销所有用户</Button>
+      </Space>
+      <Divider />
       <Form onFinish={handleFinish} form={form}>
         <Form.Item name="name" label={'用户名'} rules={[{ required: true }]}>
           <Input />

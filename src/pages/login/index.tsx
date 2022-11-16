@@ -23,8 +23,12 @@ export default function () {
         return;
       }
       const data = await res.json();
+      localStorage.setItem('user', {
+        ...data,
+        expires: new Date().getTime() + 3600000,
+      });
       message.success(`欢迎回来，${data.name}`);
-      history.push('/posts/create');
+      history.push('/posts/home');
     } catch (err) {
       console.error(err);
     }
