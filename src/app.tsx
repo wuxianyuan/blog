@@ -1,5 +1,6 @@
 // 运行时配置
 
+import { RequestConfig } from '@umijs/max';
 import { RunTimeLayoutConfig } from '@umijs/max';
 import { Footer } from 'antd/lib/layout/layout';
 
@@ -29,4 +30,16 @@ export const layout: RunTimeLayoutConfig = () => {
     footerRender: () => <Footer />,
     menuHeaderRender: undefined,
   };
+};
+
+/**请求的统一拦截器 */
+export const request: RequestConfig = {
+  timeout: 1000,
+  // other axios options you want
+  errorConfig: {
+    errorHandler() {},
+    errorThrower() {},
+  },
+  requestInterceptors: [],
+  responseInterceptors: [],
 };

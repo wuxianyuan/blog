@@ -4,6 +4,7 @@ function TextInput(props: {
   value: string;
   onChange(v: string): void;
   textArea?: boolean;
+  password?: boolean;
 }) {
   if (props.textArea) {
     return (
@@ -22,6 +23,7 @@ function TextInput(props: {
      hover:border-gray-300 focus:border-gray-500 rounded-lg my-2 outline-none
      transition-all"
       value={props.value}
+      type={props.password ? 'password' : 'text'}
       onChange={(e) => props.onChange(e.target.value)}
     />
   );

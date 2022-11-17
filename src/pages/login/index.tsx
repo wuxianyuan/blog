@@ -4,6 +4,7 @@ import Button from './components/Button';
 // @ts-ignore
 import { history } from 'umi';
 import { message } from 'antd';
+import { loginApi } from '@/services';
 
 export default function () {
   const [email, setEmail] = useState('');
@@ -11,23 +12,14 @@ export default function () {
 
   async function submit() {
     try {
-      const res = await fetch('/api/login', {
-        method: 'POST',
-        body: JSON.stringify({ email, password }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
+      loginApi({ email, password }).then((res) => {
+        localStorage.setItem('user', {
+          ...res,
+          expires: new Date().getTime() + 3600000,
+        });
+        message.success(`欢迎回来，${res.name}`);
       });
-      if (res.status !== 200) {
-        console.error(await res.text());
-        return;
-      }
-      const data = await res.json();
-      localStorage.setItem('user', {
-        ...data,
-        expires: new Date().getTime() + 3600000,
-      });
-      message.success(`欢迎回来，${data.name}`);
+
       history.push('/posts/home');
     } catch (err) {
       console.error(err);
@@ -42,7 +34,7 @@ export default function () {
           <p>邮箱</p>
           <TextInput value={email} onChange={setEmail} />
           <p className="mt-4">密码</p>
-          <TextInput value={password} onChange={setPassword} />
+          <TextInput password value={password} onChange={setPassword} />
           <Button onClick={submit}>登入</Button>
         </div>
       </div>

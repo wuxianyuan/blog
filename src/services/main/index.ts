@@ -21,3 +21,15 @@ export async function deleteAllUserApi() {
         }
     });
 }
+/**登录 */
+export async function loginApi(data: {
+    email: string, password: string
+}) {
+    return request<any>('/api/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        data
+    });
+}
