@@ -2,14 +2,9 @@ import { addUserApi, deleteAllUserApi } from '@/services';
 import { Button, Divider, Form, Input, message, Space } from 'antd';
 import { FC } from 'react';
 
-type UseInfo = {
-  name: string;
-  email: string;
-  password: string;
-};
 const Register: FC<any> = () => {
-  const [form] = Form.useForm<UseInfo>();
-  const handleFinish = (values: UseInfo) => {
+  const [form] = Form.useForm<API.UseInfoReq>();
+  const handleFinish = (values: API.UseInfoReq) => {
     addUserApi(values).then((res) => {
       if (res.code) {
         message.success(`用户${res.data.name}注册成功`);

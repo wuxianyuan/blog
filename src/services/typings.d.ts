@@ -14,7 +14,11 @@ declare namespace API {
     avatarUrl: string | null
   }
 
-
+  type UseInfoReq = {
+    name: string;
+    email: string;
+    password: string;
+  };
 
   type requestRespon<T> = {
     code: number,

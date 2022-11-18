@@ -12,6 +12,7 @@ specifiers:
   ahooks: ^3.7.2
   antd: ^4.20.7
   bcryptjs: ^2.4.3
+  js-cookie: ^3.0.1
   jsonwebtoken: ^8.5.1
   lint-staged: ^13.0.3
   prettier: ^2.7.1
@@ -31,6 +32,7 @@ dependencies:
   ahooks: 3.7.2_react@16.14.0
   antd: 4.24.2_zkbncb2mrwigeq3keybbaytzya
   bcryptjs: 2.4.3
+  js-cookie: 3.0.1
   jsonwebtoken: 8.5.1
   prisma: 4.6.1
 
@@ -5907,6 +5909,11 @@ packages:
 
   /js-cookie/2.2.1:
     resolution: {integrity: sha512-HvdH2LzI/EAZcUwA8+0nKNtWHqS+ZmijLA30RwZA0bo7ToCckjK5MkGhjED9KoRcXO6BaGI3I9UIzSA1FKFPOQ==}
+    dev: false
+
+  /js-cookie/3.0.1:
+    resolution: {integrity: sha512-+0rgsUXZu4ncpPxRL+lNEptWMOWl9etvPHc/koSRp6MPwpRYAhmk0dUG00J4bxVV3r9uUzfo24wW0knS07SKSw==}
+    engines: {node: '>=12'}
     dev: false
 
   /js-tokens/4.0.0:

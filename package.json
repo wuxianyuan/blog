@@ -19,6 +19,7 @@
     "ahooks": "^3.7.2",
     "antd": "^4.20.7",
     "bcryptjs": "^2.4.3",
+    "js-cookie": "^3.0.1",
     "jsonwebtoken": "^8.5.1",
     "prisma": "^4.6.1"
   },

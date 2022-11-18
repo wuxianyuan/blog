@@ -2,7 +2,7 @@ import { request } from "@/.umi/plugin-request";
 
 /**注册新用户 */
 export async function addUserApi(
-    data: API.UserInfo
+    data: API.UseInfoReq
 ) {
     return request<API.requestRespon<API.UserInfo>>('/api/register', {
         method: 'POST',
