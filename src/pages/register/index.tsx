@@ -11,13 +11,17 @@ const Register: FC<any> = () => {
   const [form] = Form.useForm<UseInfo>();
   const handleFinish = (values: UseInfo) => {
     addUserApi(values).then((res) => {
-      message.success(`用户${res.name}注册成功`);
+      if (res.code) {
+        message.success(`用户${res.data.name}注册成功`);
+      }
     });
     console.log(values);
   };
   const handleDelete = () => {
-    deleteAllUserApi().then(() => {
-      message.success('请求成功');
+    deleteAllUserApi().then((res) => {
+      if (res.code === 200) {
+        message.success('请求成功');
+      }
     });
   };
   return (

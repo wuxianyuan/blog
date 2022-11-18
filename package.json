@@ -16,6 +16,7 @@
     "@types/bcryptjs": "^2.4.2",
     "@types/jsonwebtoken": "^8.5.9",
     "@umijs/max": "^4.0.30",
+    "ahooks": "^3.7.2",
     "antd": "^4.20.7",
     "bcryptjs": "^2.4.3",
     "jsonwebtoken": "^8.5.1",

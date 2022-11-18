@@ -2,9 +2,9 @@ import { request } from "@/.umi/plugin-request";
 
 /**注册新用户 */
 export async function addUserApi(
-    data: API.UserInfoVO
+    data: API.UserInfo
 ) {
-    return request<API.Result_UserInfo_>('/api/register', {
+    return request<API.requestRespon<API.UserInfo>>('/api/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -12,9 +12,9 @@ export async function addUserApi(
         data
     });
 }
-/**接口测试 */
+/**删除所有用户 */
 export async function deleteAllUserApi() {
-    return request<API.Result_UserInfo_>('/api/deleteAllUser', {
+    return request<API.requestRespon<API.UserInfo>>('/api/deleteAllUser', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -25,7 +25,7 @@ export async function deleteAllUserApi() {
 export async function loginApi(data: {
     email: string, password: string
 }) {
-    return request<any>('/api/login', {
+    return request<API.requestRespon<API.UserInfo>>('/api/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

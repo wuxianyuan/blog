@@ -34,7 +34,7 @@ export const layout: RunTimeLayoutConfig = () => {
 
 /**请求的统一拦截器 */
 export const request: RequestConfig = {
-  timeout: 1000,
+  timeout: 2000,
   // other axios options you want
   errorConfig: {
     errorHandler() {},

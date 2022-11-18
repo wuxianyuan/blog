@@ -14,7 +14,10 @@ export default async function (req: UmiApiRequest, res: UmiApiResponse) {
         }
         const _user = await prisma.user.findMany()
         res.status(200)
-            .json({ ..._user })
+            .json({
+                code: 200,
+                data: { ..._user }
+            })
 
         // 处理完请求以后记得断开数据库链接 
         await prisma.$disconnect();

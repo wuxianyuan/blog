@@ -5,19 +5,21 @@ import Button from './components/Button';
 import { history } from 'umi';
 import { message } from 'antd';
 import { loginApi } from '@/services';
+import { useCookieState } from 'ahooks';
 
 export default function () {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  useCookieState('user', {});
 
   async function submit() {
     try {
       loginApi({ email, password }).then((res) => {
-        localStorage.setItem('user', {
-          ...res,
-          expires: new Date().getTime() + 3600000,
-        });
-        message.success(`欢迎回来，${res.name}`);
+        if (res.code === 200) {
+          localStorage.setItem('user', String(res.data.id || ''));
+        }
+
+        message.success(`欢迎回来，${res.data.name}`);
       });
 
       history.push('/posts/home');
