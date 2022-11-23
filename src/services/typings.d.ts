@@ -22,6 +22,7 @@ declare namespace API {
 
   type requestRespon<T> = {
     code: number,
-    data: T
+    data: T,
+    message?: string
   }
 }

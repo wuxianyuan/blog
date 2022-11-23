@@ -18,9 +18,11 @@ export default function () {
           cookie.set('user', String(res.data.id || ''), {
             expires: new Date().getTime() + 3600000,
           });
+          message.success(`欢迎回来，${res.data.name}`);
+          history.push('/posts/home');
+        } else {
+          message.error(res.message);
         }
-        message.success(`欢迎回来，${res.data.name}`);
-        history.push('/posts/home');
       });
     } catch (err) {
       console.error(err);
